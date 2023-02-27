@@ -1,5 +1,5 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Logic Gates");
+﻿
+Console.WriteLine("Neural :-) Logic Gates");
 
 
 double[][] datain = new double[][]
@@ -147,6 +147,7 @@ datain = new double[][]
 };
 
 Console.WriteLine("a b | c d || r0 r1 r2");
+Console.WriteLine("----|-----||---------");
 
 for (var i = 0; i < datain.Length; i++)
 {
@@ -169,7 +170,11 @@ for (var i = 0; i < datain.Length; i++)
     var r0_4 = andneuron.Compute(andneuron.Compute(andneuron.Compute( a, nb), c),  d);
     var r0_5 = andneuron.Compute(andneuron.Compute(andneuron.Compute( a,  b), c),  d);
 
-    var r0 =orneuron.Compute(orneuron.Compute(orneuron.Compute(orneuron.Compute(orneuron.Compute(r0_0, r0_1), r0_2),r0_3),r0_4),r0_5);
+    var r0 = orneuron.Compute(orneuron.Compute(orneuron.Compute(orneuron.Compute(orneuron.Compute(r0_0, r0_1), r0_2),r0_3),r0_4),r0_5);
+
+    //                _   _     _       _             _   _         _   _       _     _           _     _   _
+    //  r1 = (a * b * c * d) + (a * b * c * d) + (a * b * c * d) + (a * b * c * d) + (a * b * c * d) + (a * b * c * d) + (a * b * c * d)
+
 
     Console.WriteLine($"{a} {b} | {c} {d} || {r0} r1 r2");
 }
