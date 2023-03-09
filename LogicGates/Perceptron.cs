@@ -84,22 +84,11 @@ namespace LogicGates
                 }
 
                 losserror = losserror / dataOut.Length;
-                Console.WriteLine($" {losserror.ToString("F2")}");
+                Console.Write($" {losserror.ToString("F4")}");
 
             }
 
-            Console.WriteLine("Results:");
-
-            for (var i = 0; i < dataIn.Length; i++)
-            {
-                var curin = dataIn[i];
-
-                Console.WriteLine($"{curin[0]} {curin[1]} - {neunet.Compute(curin[0], curin[1])}");
-            }
-
-            Console.WriteLine("Weigths:");
-
-            Console.WriteLine($"{neunet._weights_to_output[0]} {neunet._weights_to_output[1]} {neunet._bias_to_output}");
+           
 
 
 
