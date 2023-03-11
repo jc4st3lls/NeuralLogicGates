@@ -1,4 +1,5 @@
 ﻿
+using System.ComponentModel;
 using Spectre.Console;
 
 AnsiConsole.Write(
@@ -11,6 +12,11 @@ AnsiConsole.Write(
         .Color(Color.White));
 
 
+// Create the layout
+
+
+
+
 double[][] datain = new double[][]
 {
                 new double[]{0,0},
@@ -18,8 +24,12 @@ double[][] datain = new double[][]
                 new double[]{1,0},
                 new double[]{1,1}
 };
+
+
 AnsiConsole.WriteLine();
 AnsiConsole.Write(new Markup("[bold lime]Training OR[/]"));
+
+
 
 double[] dataoutOR = new double[]
 {
@@ -35,9 +45,10 @@ WriteWeigths(orweights);
 var orneuron = new LogicGates.Perceptron(orweights);
 Test(datain,orneuron);
 
+
+
 AnsiConsole.WriteLine();
 AnsiConsole.Write(new Markup("[bold lime]Training AND[/]"));
-
 
 
 double[] dataoutAND = new double[]
@@ -53,9 +64,10 @@ WriteWeigths(andweights);
 var andneuron = new LogicGates.Perceptron(andweights);
 Test(datain, andneuron);
 
+
+
 AnsiConsole.WriteLine();
 AnsiConsole.Write(new Markup("[bold lime]Training NOR[/]"));
-
 
 
 double[] dataoutNOR = new double[]
@@ -71,9 +83,11 @@ WriteWeigths(norweights);
 var norneuron = new LogicGates.Perceptron(norweights);
 Test(datain, norneuron);
 
+
+
+
 AnsiConsole.WriteLine();
 AnsiConsole.Write(new Markup("[bold lime]Training NAND[/]"));
-
 
 double[] dataoutNAND = new double[]
 {
@@ -89,10 +103,9 @@ var nandneuron = new LogicGates.Perceptron(nandweights);
 
 Test(datain, nandneuron);
 
+
 AnsiConsole.WriteLine();
-AnsiConsole.Write(new Markup("[bold lime]XOR NN [/] - [bold white on blue]https://es.wikipedia.org/wiki/Puerta_XOR [/]"));
-
-
+AnsiConsole.Write(new Markup("[bold lime]XOR NN (Composed of other logic gates)[/] - [bold white on blue]https://es.wikipedia.org/wiki/Puerta_XOR [/]"));
 var table = new Table();
 
 // Add some columns
@@ -115,11 +128,9 @@ for (var i = 0; i < datain.Length; i++)
 var panel = new Panel(table);
 panel.Header("Test");
 AnsiConsole.Write(panel);
-
-
+        
 AnsiConsole.WriteLine();
 AnsiConsole.Write(new Markup("[bold lime]Training NOT[/]"));
-
 
 datain = new double[][]
 {
@@ -143,7 +154,6 @@ AnsiConsole.WriteLine();
 
 
 
-
 //  Two digit adder
 //
 //  a b | c d || r0 r1 r2
@@ -164,6 +174,11 @@ AnsiConsole.WriteLine();
 //  0 1 | 1 1 || 1  0  0  = 4
 //  1 0 | 1 1 || 1  0  1  = 5
 //  1 1 | 1 1 || 1  1  0  = 6
+
+
+
+
+
 //                _             _       _                 _     _                     _
 //  r0 = (a * b * c * d) + (a * b * c * d) + (a * b * c * d) + (a * b * c * d) + (a * b * c * d) + (a * b * c * d)
 //                _   _     _       _             _   _         _   _       _     _           _     _   _
@@ -193,8 +208,21 @@ datain = new double[][]
                 new double[]{1,1,1,1},
 };
 
-Console.WriteLine("a b | c d || r0 r1 r2");
-Console.WriteLine("----|-----||---------");
+AnsiConsole.Write(new Panel(new Markup("[bold lime]Example:Two-bit input adder with neurons[/]")));
+
+var t = new Table();
+// Add some columns
+t.AddColumn(new TableColumn("a").Centered());
+t.AddColumn(new TableColumn("b").Centered());
+t.AddColumn(new TableColumn("[yellow]+[/]").Centered());
+t.AddColumn(new TableColumn("c").Centered());
+t.AddColumn(new TableColumn("d").Centered());
+t.AddColumn(new TableColumn("[yellow]=[/]").Centered());
+
+t.AddColumn(new TableColumn("[green]r1[/]").Centered());
+t.AddColumn(new TableColumn("[green]r2[/]").Centered());
+t.AddColumn(new TableColumn("[green]r3[/]").Centered());
+
 
 for (var i = 0; i < datain.Length; i++)
 {
@@ -244,11 +272,29 @@ for (var i = 0; i < datain.Length; i++)
     var r2 = andneuron.Compute(andneuron.Compute(andneuron.Compute(andneuron.Compute(andneuron.Compute(andneuron.Compute(r2_0, r2_1), r2_2), r2_3), r2_4), r2_5), r2_6);
 
 
+    t.AddRow($"{a}",$"{b}", "[yellow]+[/]", $"{c}",$"{d}", "[yellow]=[/]",  $"[green]{r0}[/]",  $"[green]{r1}[/]", $"[green]{r2}[/]");
 
-
-    Console.WriteLine($"{a} {b} | {c} {d} ||  {r0}  {r1}  {r2}");
+    
 }
+var paneladder = new Panel(t);
+AnsiConsole.Write(paneladder);
+AnsiConsole.WriteLine();
 
+AnsiConsole.Write(new Markup("              _             _       _                 _     _                     _                           "));
+AnsiConsole.WriteLine();
+AnsiConsole.Write(new Markup("r0 = (a * b * c * d) + (a * b * c * d) + (a * b * c * d) + (a * b * c * d) + (a * b * c * d) + (a * b * c * d)"));
+AnsiConsole.WriteLine();
+
+AnsiConsole.Write(new Markup("              _   _     _       _             _   _         _   _       _     _           _     _   _                           "));
+AnsiConsole.WriteLine();
+AnsiConsole.Write(new Markup("r1 = (a * b * c * d) + (a * b * c * d) + (a * b * c * d) + (a * b * c * d) + (a * b * c * d) + (a * b * c * d) + (a * b * c * d)"));
+AnsiConsole.WriteLine();
+
+
+AnsiConsole.Write(new Markup("                            _       _     _   _       _             _         _       _             _   _   _     _   _   _   _"));
+AnsiConsole.WriteLine();
+AnsiConsole.Write(new Markup("r2 = (a + b + c + d) * (a + b + c + d) * (a + b + c + d) * (a + b + c + d) * (a + b + c + d) * (a + b + c + d) * (a + b + c + d)"));
+AnsiConsole.WriteLine();
 
 Console.ReadLine();
 
@@ -264,7 +310,9 @@ void WriteWeigths(double[] weights)
 void Test(double[][] dataIn, LogicGates.Perceptron neunet)
 {
 
-    
+
+
+
     //Console.WriteLine("Test");
 
     var table = new Table();
