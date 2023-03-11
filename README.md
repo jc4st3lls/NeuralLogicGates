@@ -1,2 +1,2 @@
 # NeuralLogicGates
-Neuronal Logic Gates
+## Portes lògiques fetes amb perceptrons entrenats.
