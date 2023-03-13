@@ -219,9 +219,9 @@ t.AddColumn(new TableColumn("c").Centered());
 t.AddColumn(new TableColumn("d").Centered());
 t.AddColumn(new TableColumn("[yellow]=[/]").Centered());
 
+t.AddColumn(new TableColumn("[green]r0[/]").Centered());
 t.AddColumn(new TableColumn("[green]r1[/]").Centered());
 t.AddColumn(new TableColumn("[green]r2[/]").Centered());
-t.AddColumn(new TableColumn("[green]r3[/]").Centered());
 
 
 for (var i = 0; i < datain.Length; i++)
