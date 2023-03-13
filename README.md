@@ -14,5 +14,3 @@ Si seguim en aquesta linea, ens trobem amb la computadora cognitiva, el propòsi
 Aquí presento una petita prova de concepte, simple, molt simple, per desmostrar com podem solucionar circuits digitals amb perceptrons entrenats per resoldre les portes lògiques OR, AND, NOR, NAND i NOT, i la porta XOR (no linial), com a una composició de diferents portes lògiques. [https://es.wikipedia.org/wiki/Puerta_XOR].
 
 Un cop entrenades, s'utilitzen aquestes per resoldre un sumador d'entrades de 2 bits (no simplificat). Seguin aquesta lògica, podriem arribar a dissenyar circuits amb neurones artificials ja entrandes, per composar-les amb altres, i donar solucions més complexes, eliminant les fases d'entrenament. O sigui, seguint el terme "divide et vinces", es podrien crear petites xarxes neuronals que fossin part de solucions més complexes, composant-es entre elles. Si poguessim arribar a un conjunt finit d'aquestes i les poguessim encabir en un xip amb neurones artificials (computació cognitiva), podriem dir que són xips neuromòrfics?
-
-
