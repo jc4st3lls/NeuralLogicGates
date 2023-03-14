@@ -21,4 +21,4 @@ Personalment crec que la IA que veiem ara està més o menys com els inicis d'in
 
 Si ens endinssem una miqueta, no gaire, en la computació quàntica, aquesta també va de vectors, matrius..., punts i vectors vistos des de bases diferents (dimensions diferents),o sigui, àlgebra, igual que les xarxes neuronals. Poder si juntem una cosa i l'altre, la cosa, la IA, millora, i té un cost inferior, en tots els sentits, de comput i energètic.
 
-
+I ja per acabar, si arribem a una neurona artificial molt elaborada, podem plantejar el xips neuromorfics per substituir parts del sistema nervios que s'ha fet malbé o deteriorat.
